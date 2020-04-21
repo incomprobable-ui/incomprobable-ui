@@ -1,6 +1,7 @@
 const path = require("path");
 const webpack = require("webpack");
 const MiniCssExtractPlugin = require("mini-css-extract-plugin");
+const exec = require("child_process").exec;
 
 module.exports = () => {
   const platform = process.env.NODE_ENV.includes("rn") ? "native" : "web";
@@ -113,6 +114,21 @@ module.exports = () => {
       new MiniCssExtractPlugin({
         filename: `bundle.${platform}.css`,
       }),
+      {
+        apply: (compiler) => {
+          if (platform === "native") {
+            compiler.hooks.afterEmit.tap("AfterEmitPlugin", (compilation) => {
+              exec(
+                "cp ./dist/bundle.native.js ./stories/native/storybook/stories",
+                (err, stdout, stderr) => {
+                  if (stdout) process.stdout.write(stdout);
+                  if (stderr) process.stderr.write(stderr);
+                }
+              );
+            });
+          }
+        },
+      },
     ],
   };
 };

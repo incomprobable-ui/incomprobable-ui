@@ -9,7 +9,7 @@
     "build:prod:web": "cross-env NODE_ENV=production_web webpack --config webpack.prod.js",
     "build:prod:native": "cross-env NODE_ENV=production_rn webpack --config webpack.prod.js",
     "storybook:web": "node_modules/@storybook/react/bin/index.js -p 6006 -c .storybook/react",
-    "storybook:native": "start-storybook -p 7007 -c .storybook/native",
+    "storybook:native": "cd stories/native && yarn start-storybook",
     "bundler": "react-native start --port=8080"
   },
   "dependencies": {
