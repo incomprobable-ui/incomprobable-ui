@@ -1,10 +1,8 @@
 import * as styledComponents from "styled-components";
+import Colors from "./components/Colors/Colors";
 
 export const theme = {
-  colors: {
-    // Branding
-    green: "#00C071",
-  },
+  colors: Colors,
 };
 
 const { default: styled, css, ThemeProvider } = styledComponents as any;
