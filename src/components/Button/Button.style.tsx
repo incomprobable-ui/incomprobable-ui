@@ -1,11 +1,9 @@
 // Dependencies
 import styled, { css } from "../../Theme";
+import { IButtonProps, ITextProps } from "../../types";
 import { TextProps, TouchableOpacityProps } from "react-native";
 
 const { platform } = process.env;
-
-type IButtonProps = TouchableOpacityProps | React.HTMLProps<HTMLButtonElement>
-type ITextProps = TextProps | React.HTMLProps<HTMLSpanElement>
 
 const Button: React.FC<IButtonProps> = platform === "native" ? styled.TouchableOpacity<TouchableOpacityProps>`` : styled.button<React.HTMLProps<HTMLButtonElement>>``;
 const Text: React.FC<ITextProps> = platform === "native" ? styled.Text<TextProps>`` : styled.span<React.HTMLProps<HTMLSpanElement>>``;

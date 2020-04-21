@@ -10,7 +10,10 @@
     "build:prod:native": "cross-env NODE_ENV=production_rn webpack --config webpack.prod.js",
     "storybook:web": "node_modules/@storybook/react/bin/index.js -p 6006 -c .storybook/react",
     "storybook:native": "cd stories/native && yarn start-storybook",
-    "bundler": "react-native start --port=8080"
+    "bundler": "react-native start --port=8080",
+    "run-android": "cd stories/native && react-native run-android",
+    "run-ios": "cd stories/native && react-native run-ios",
+    "commit": "npx git-cz"
   },
   "dependencies": {
     "flag-icon-css": "^3.4.6",
@@ -38,12 +41,15 @@
     "babel-loader": "^8.1.0",
     "babel-plugin-styled-components": "^1.10.7",
     "babel-preset-react-native": "^4.0.1",
-    "babel-preset-react-native-typescript": "^1.0.0-rc.1",
     "clean-webpack-plugin": "^3.0.0",
     "cross-env": "^6.0.3",
     "css-loader": "^3.5.2",
+    "cz-conventional-changelog": "3.1.0",
+    "husky": "^4.2.5",
     "metro-react-native-babel-preset": "^0.59.0",
     "mini-css-extract-plugin": "^0.9.0",
+    "prettier": "^2.0.5",
+    "pretty-quick": "^2.0.1",
     "react": "^16.13.1",
     "react-native": "^0.62.2",
     "styled-components": "^4.4.1",
@@ -52,5 +58,10 @@
     "typescript": "^3.6.2",
     "webpack": "^4.42.1",
     "webpack-cli": "^3.3.11"
+  },
+  "config": {
+    "commitizen": {
+      "path": "./node_modules/cz-conventional-changelog"
+    }
   }
 }
