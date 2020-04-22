@@ -1,5 +1,5 @@
-import * as styledComponents from "styled-components";
-import Colors from "./components/Colors/Colors";
+import * as styledComponents from 'styled-components';
+import Colors from './components/Colors/Colors';
 
 export const theme = {
   colors: Colors,

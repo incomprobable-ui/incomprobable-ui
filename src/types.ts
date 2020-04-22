@@ -1,28 +1,101 @@
 // Dependencies
-import { TouchableOpacityProps, TextProps } from "react-native";
+import { TouchableOpacityProps, TextProps } from 'react-native';
+
+export type VariantProps = {
+  variant?: ButtonVariant;
+  color: InstitutionalColor | PrimaryColor;
+};
+
+export type IconVariantProps = {
+  variant?: IconButtonVariant;
+  color: InstitutionalColor | PrimaryColor;
+};
+
+export type ActivableProps = {
+  active?: boolean;
+  disabled?: boolean;
+};
 
 export type IButtonProps = TouchableOpacityProps &
-  React.HTMLProps<HTMLButtonElement>;
+  React.HTMLProps<HTMLButtonElement> &
+  VariantProps &
+  ActivableProps;
 
-export type ITextProps = TextProps | React.HTMLProps<HTMLSpanElement>;
+export type IIconButtonProps = TouchableOpacityProps &
+  React.HTMLProps<HTMLButtonElement> &
+  IconVariantProps &
+  ActivableProps;
+
+export type ITextProps =
+  | (TextProps & VariantProps & ActivableProps)
+  | (React.HTMLProps<HTMLSpanElement> & VariantProps & ActivableProps);
+
+export enum ButtonVariant {
+  Classic = 'classic',
+  Outline = 'outline',
+  Flat = 'flat',
+}
+
+export enum IconButtonVariant {
+  Classic = 'classic',
+  Outline = 'outline',
+}
+
+export enum Platform {
+  Web = 'web',
+  Native = 'native',
+}
 
 export type ButtonProps = {
+  disabled?: boolean;
   children: string;
   onClick?: () => void;
   onPress?: () => void;
-};
+} & VariantProps;
+
+export type IconButtonProps = {
+  color: InstitutionalColor | PrimaryColor;
+  icon: string;
+  onClick?: () => void;
+  onPress?: () => void;
+} & ActivableProps &
+  IconVariantProps;
 
 export enum InstitutionalColor {
-  "Orange",
-  "Blue",
+  Orange = 'Orange',
+  Blue = 'Blue',
 }
+
 export enum PrimaryColor {
-  "Mario",
-  "Luigi",
-  "Milhouse",
-  "Randy",
-  "Kirby",
+  Mario = 'Mario',
+  Luigi = 'Luigi',
+  Milhouse = 'Milhouse',
+  Randy = 'Randy',
+  Kirby = 'Kirby',
 }
+
+export type Shadow = {
+  s1: string;
+  s2: string;
+  s3: string;
+};
+
+export type INativeShadow = {
+  elevation: number;
+  shadowColor: string;
+  shadowOffset: {
+    height: number;
+    width: number;
+  };
+  shadowOpacity: number;
+  shadowRadius: number;
+};
+
+export type NativeShadow = {
+  s1: INativeShadow;
+  s2: INativeShadow;
+  s3: INativeShadow;
+};
 
 export type InstitutionalColors = {
   [key in InstitutionalColor]: {

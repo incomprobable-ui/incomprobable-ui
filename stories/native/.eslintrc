@@ -1,0 +1,56 @@
+{
+	"parser": "babel-eslint",
+	"plugins": [
+		"react",
+    "react-native",
+    "jest",
+    "detox",
+    "prettier"
+	],
+	"parserOptions": {
+		"ecmaFeatures": {
+			"jsx": true,
+			"modules": true
+		}
+  },
+	"env": {
+		"browser": true,
+		"amd": true,
+		"node": true,
+    "es6": true,
+    "jest/globals": true
+	},
+	"extends" : [
+		"eslint:recommended",
+		"plugin:react/recommended",
+		"airbnb-base"
+	],
+	"rules" : {
+		"arrow-body-style" : "warn",
+		"no-tabs": ["warn", { "allowIndentationTabs": true }],
+		"no-plusplus": ["error", { "allowForLoopAfterthoughts": true }],
+    "no-bitwise": ["error", { "allow": ["~", "<<"] }],
+    "operator-linebreak": 0,
+		"no-param-reassign": [2, { "props": false }],
+		"import/no-unresolved": 0,
+		"arrow-parens": 0,
+    "no-mixed-spaces-and-tabs": 1,
+    "camelcase": 0,
+    "react/no-string-refs": 0,
+    "import/extensions": 0,
+    "implicit-arrow-linebreak": 0,
+    "function-paren-newline": 0,
+    "import/no-extraneous-dependencies": 0,
+    "import/no-named-as-default-member": 0,
+    "react/prop-types": 0,
+    "object-curly-newline": 0
+	},
+	"settings": {
+		"react": {
+			"version": "detect"
+    },
+    "import/resolver": {
+      "babel-module": {}
+    }
+	}
+}

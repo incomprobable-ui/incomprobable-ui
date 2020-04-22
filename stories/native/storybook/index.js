@@ -1,5 +1,5 @@
-import {AppRegistry} from 'react-native';
-import {getStorybookUI, configure} from '@storybook/react-native';
+import { AppRegistry } from 'react-native';
+import { getStorybookUI, configure } from '@storybook/react-native';
 
 import './rn-addons';
 
@@ -7,6 +7,8 @@ import './rn-addons';
 configure(() => {
   require('./stories/Button.stories');
   require('./stories/Colors.stories');
+  require('./stories/Shadows.stories');
+  require('./stories/Typography.stories');
 }, module);
 
 // Refer to https://github.com/storybookjs/storybook/tree/master/app/react-native#start-command-parameters

@@ -1,6 +1,27 @@
 # Incomprobable UI
 
+## Dependencies
+
+- React >= 16.9.0
+- React Native >= 0.65.1
+- Styled Components >= 4.4.1
+- React Native Vector Icons >= 6.4.5
+
+---
+
 ## Installation
+
+```bash
+# Install the library
+yarn add @incomprobable-ui/react
+# For React Native, install RNVector Icons
+yarn add react-native-vector-icons
+# For React Native, add Roboto as custom font
+```
+
+---
+
+## Development
 
 ```bash
 # Clone Repository
@@ -23,7 +44,7 @@ cd stories/native
 yarn install
 ```
 
-----
+---
 
 ## Build
 
@@ -47,7 +68,7 @@ yarn build:prod:web
 yarn build:prod:native
 ```
 
-----
+---
 
 ## Running in Local
 
