@@ -1,28 +1,29 @@
 {
-  "name": "@ex-tendeal/incomprobable-ui",
+  "name": "@incomprobable-ui/react",
   "version": "1.0.0",
-  "main": "index.js",
+  "main": "dist/bundle.web.js",
   "license": "MIT",
   "scripts": {
-    "build:dev:web": "cross-env NODE_ENV=development_web webpack --config webpack.dev.js",
-    "build:dev:native": "cross-env NODE_ENV=development_rn webpack --config webpack.dev.js",
-    "build:prod:web": "cross-env NODE_ENV=production_web webpack --config webpack.prod.js",
-    "build:prod:native": "cross-env NODE_ENV=production_rn webpack --config webpack.prod.js",
-    "storybook:web": "node_modules/@storybook/react/bin/index.js -p 6006 -c .storybook/react",
-    "storybook:native": "cd stories/native && yarn start-storybook",
+    "build:dev:web": "cross-env PLATFORM=web NODE_ENV=development_web webpack --config webpack.dev.js",
+    "build:dev:native": "cross-env PLATFORM=native NODE_ENV=development_rn webpack --config webpack.dev.js",
+    "build:prod:web": "cross-env PLATFORM=web NODE_ENV=production_web webpack --config webpack.prod.js",
+    "build:prod:native": "cross-env PLATFORM=native NODE_ENV=production_rn webpack --config webpack.prod.js",
+    "storybook:web": "STORYBOOK_PLATFORM=web node_modules/@storybook/react/bin/index.js -p 6006 -c .storybook/react",
+    "storybook:native": "STORYBOOK_PLATFORM=native cd stories/native && yarn start-storybook",
     "bundler": "react-native start --port=8080",
     "run-android": "cd stories/native && react-native run-android",
     "run-ios": "cd stories/native && react-native run-ios",
+    "prettier": "prettier --check ./src/**/*.ts ./src/**/*.tsx",
+    "prettier:fix": "prettier --write ./src/**/*.ts ./src/**/*.tsx",
     "commit": "npx git-cz"
   },
   "dependencies": {
-    "flag-icon-css": "^3.4.6",
-    "moment": "^2.24.0",
-    "prop-types": "^15.7.2",
-    "react-dom": "^16.13.1"
+    "material-design-icons-iconfont": "^5.0.1"
   },
   "peerDependencies": {
-    "styled-components": "^4.4.0"
+    "react": "^16.9.0",
+    "react-dom": "^16.9.0",
+    "styled-components": "^4.4.1"
   },
   "devDependencies": {
     "@babel/core": "^7.9.0",
@@ -37,6 +38,7 @@
     "@types/react": "^16.9.34",
     "@types/react-dom": "^16.9.6",
     "@types/react-native": "^0.62.2",
+    "@types/react-native-vector-icons": "^6.4.5",
     "@types/styled-components": "^5.1.0",
     "babel-loader": "^8.1.0",
     "babel-plugin-styled-components": "^1.10.7",
@@ -45,13 +47,18 @@
     "cross-env": "^6.0.3",
     "css-loader": "^3.5.2",
     "cz-conventional-changelog": "3.1.0",
+    "file-loader": "^6.0.0",
     "husky": "^4.2.5",
     "metro-react-native-babel-preset": "^0.59.0",
     "mini-css-extract-plugin": "^0.9.0",
-    "prettier": "^2.0.5",
+    "prettier": "2.0.5",
     "pretty-quick": "^2.0.1",
     "react": "^16.13.1",
+    "react-dom": "^16.13.1",
     "react-native": "^0.62.2",
+    "react-native-vector-icons": "^6.6.0",
+    "sass": "^1.26.3",
+    "sass-loader": "^8.0.2",
     "styled-components": "^4.4.1",
     "svg-url-loader": "^5.0.0",
     "ts-loader": "^6.0.4",
@@ -62,6 +69,11 @@
   "config": {
     "commitizen": {
       "path": "./node_modules/cz-conventional-changelog"
+    }
+  },
+  "husky": {
+    "hooks": {
+      "pre-commit": "pretty-quick --staged"
     }
   }
 }

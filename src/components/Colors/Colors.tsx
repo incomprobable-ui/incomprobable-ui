@@ -1,7 +1,14 @@
-import { InstitutionalColors, PrimaryColors, SecondaryColors, NeutralColors } from '../../types';
+import {
+  InstitutionalColor,
+  InstitutionalColors,
+  PrimaryColor,
+  PrimaryColors,
+  SecondaryColors,
+  NeutralColors,
+} from '../../types';
 
 const Institutional: InstitutionalColors = {
-  Blue: {
+  [InstitutionalColor.Blue]: {
     c50: '#e3ecff',
     c100: '#bed0e5',
     c200: '#9db0c9',
@@ -13,7 +20,7 @@ const Institutional: InstitutionalColors = {
     c800: '#1e334a',
     c900: '#0B2033',
   },
-  Orange: {
+  [InstitutionalColor.Orange]: {
     c50: '#fff7e0',
     c100: '#ffe9b0',
     c200: '#ffda7d',
@@ -24,11 +31,11 @@ const Institutional: InstitutionalColors = {
     c700: '#ff9600',
     c800: '#ff8400',
     c900: '#FF6300',
-  }
-}
+  },
+};
 
 const Primary: PrimaryColors = {
-  Milhouse: {
+  [PrimaryColor.Milhouse]: {
     c100: '#e3f1f8',
     c200: '#bbdcef',
     c300: '#93c6e4',
@@ -36,7 +43,7 @@ const Primary: PrimaryColors = {
     c500: '#2c91d1',
     c600: '#2284c4',
   },
-  Mario: {
+  [PrimaryColor.Mario]: {
     c100: '#ffcbd2',
     c200: '#f69799',
     c300: '#ee6d71',
@@ -44,7 +51,7 @@ const Primary: PrimaryColors = {
     c500: '#de123a',
     c600: '#d10322',
   },
-  Luigi: {
+  [PrimaryColor.Luigi]: {
     c100: '#c0e6c8',
     c200: '#97d5a5',
     c300: '#6ac682',
@@ -52,7 +59,7 @@ const Primary: PrimaryColors = {
     c500: '#009e43',
     c600: '#007b2c',
   },
-  Randy: {
+  [PrimaryColor.Randy]: {
     c100: '#e0f8f8',
     c200: '#b2edee',
     c300: '#80e1e4',
@@ -60,7 +67,7 @@ const Primary: PrimaryColors = {
     c500: '#00b0bc',
     c600: '#00878b',
   },
-  Kirby: {
+  [PrimaryColor.Kirby]: {
     c100: '#fde5ed',
     c200: '#fbbed2',
     c300: '#f995b4',
@@ -68,7 +75,7 @@ const Primary: PrimaryColors = {
     c500: '#e12f65',
     c600: '#b5265c',
   },
-}
+};
 
 export const Secondary: SecondaryColors = {
   c1: '#6db8ff',
@@ -91,7 +98,7 @@ export const Secondary: SecondaryColors = {
   c18: '#c5e1a5',
   c19: '#4db6ac',
   c20: '#e69deb',
-}
+};
 
 export const Neutral: NeutralColors = {
   c0: '#ffffff',
@@ -103,6 +110,26 @@ export const Neutral: NeutralColors = {
   c800: '#646464',
   c900: '#333333',
   c1000: '#000000',
+};
+
+export const shadeColor = (color: string, percent: number): string => {
+  let R: number = parseInt(color.substring(1,3),16);
+  let G: number = parseInt(color.substring(3,5),16);
+  let B: number = parseInt(color.substring(5,7),16);
+
+  R = parseInt((R * (100 + percent) / 100).toString());
+  G = parseInt((G * (100 + percent) / 100).toString());
+  B = parseInt((B * (100 + percent) / 100).toString());
+
+  R = (R < 255) ? R : 255;
+  G = (G < 255) ? G : 255;
+  B = (B < 255) ? B : 255;
+
+  let RR: string = ((R.toString(16).length === 11) ? "0" + R.toString(16) : R.toString(16));
+  let GG: string = ((G.toString(16).length === 11) ? "0" + G.toString(16) : G.toString(16));
+  let BB: string = ((B.toString(16).length === 11) ? "0" + B.toString(16) : B.toString(16));
+
+  return "#" + RR + GG + BB;
 }
 
-export default { Institutional, Primary, Secondary, Neutral };
+export default { shadeColor, Institutional, Primary, Secondary, Neutral };

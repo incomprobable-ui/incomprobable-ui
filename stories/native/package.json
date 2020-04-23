@@ -6,33 +6,51 @@
     "android": "react-native run-android",
     "ios": "react-native run-ios",
     "start": "react-native start",
-    "test": "jest",
-    "lint": "eslint .",
-    "storybook": "start-storybook"
+    "commit": "npx git-cz",
+    "lint": "eslint '**/*.js'",
+    "lint:fix": "eslint '**/*.js' --fix",
+    "prettier": "prettier --check '**/*.js'",
+    "prettier:fix": "prettier --write '**/*.js'",
+    "magic": "yarn lint:fix && yarn prettier:fix",
+    "storybook": "start-storybook -p 7007"
   },
   "dependencies": {
-    "react": "16.11.0",
-    "react-native": "0.62.2",
+    "react": "16.9.0",
+    "react-native": "0.61.5",
+    "react-native-vector-icons": "^6.6.0",
     "styled-components": "^5.1.0"
   },
   "devDependencies": {
     "@babel/core": "^7.9.0",
     "@babel/runtime": "^7.9.2",
-    "@react-native-community/eslint-config": "^1.1.0",
+    "@react-native-community/eslint-config": "^0.0.5",
     "@storybook/addon-actions": "^5.3.18",
     "@storybook/addon-links": "^5.3.18",
     "@storybook/addons": "^5.3.18",
     "@storybook/react-native": "^5.3.18",
     "@storybook/react-native-server": "^5.3.18",
-    "babel-jest": "^25.4.0",
+    "babel-jest": "^24.9.0",
     "babel-loader": "^8.1.0",
+    "babel-plugin-module-resolver": "^4.0.0",
+    "cz-conventional-changelog": "3.0.2",
     "eslint": "^6.8.0",
-    "jest": "^25.4.0",
-    "metro-react-native-babel-preset": "^0.59.0",
-    "react-dom": "16.11.0",
-    "react-test-renderer": "16.11.0"
+    "eslint-config-airbnb-base": "^14.1.0",
+    "eslint-import-resolver-babel-module": "^5.1.2",
+    "eslint-plugin-import": "^2.20.1",
+    "eslint-plugin-jest": "^23.8.2",
+    "eslint-plugin-react": "^7.19.0",
+    "eslint-plugin-react-native": "^3.8.1",
+    "jest": "^24.9.0",
+    "metro-react-native-babel-preset": "^0.57.0",
+    "react-dom": "^16.9.0",
+    "react-test-renderer": "16.9.0"
   },
   "jest": {
     "preset": "react-native"
+  },
+  "config": {
+    "commitizen": {
+      "path": "./node_modules/cz-conventional-changelog"
+    }
   }
 }
