@@ -1,8 +1,8 @@
 // Dependencies
 import * as React from 'react';
-import Icon from 'react-native-vector-icons/MaterialIcons';
 import 'material-design-icons-iconfont/dist/material-design-icons.css';
 import Colors from '../Colors/Colors';
+import Icon from '../Icon/Icon';
 // Types
 import {
   IIconButtonProps,
@@ -12,7 +12,7 @@ import {
   IconButtonVariant,
 } from '../../types';
 // Styled
-import { StyledButton, StyledIcon } from './IconButton.style';
+import { StyledButton } from './IconButton.style';
 // Utils
 import { getPlatform } from '../../utils/Platform';
 
@@ -22,10 +22,11 @@ const MixColors = { ...Colors.Institutional, ...Colors.Primary };
 const IconButton: React.FC<IconButtonProps> = ({
   active,
   color = InstitutionalColor.Blue,
-  disabled,
+  disabled = false,
   icon,
   onClick,
   onPress,
+  size = 24,
   variant = IconButtonVariant.Classic,
 }) => {
   const props: IIconButtonProps = {
@@ -50,12 +51,7 @@ const IconButton: React.FC<IconButtonProps> = ({
 
   return (
     <StyledButton {...props}>
-      {platform === Platform.Native && <Icon color={iconColor} name={icon} size={24} />}
-      {platform === Platform.Web && (
-        <StyledIcon {...{ color, className: props.className, disabled, variant }}>
-          {icon}
-        </StyledIcon>
-      )}
+      <Icon {...{ color: iconColor, disabled, name: icon, size }} />
     </StyledButton>
   );
 };

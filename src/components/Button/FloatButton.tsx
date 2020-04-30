@@ -1,24 +1,26 @@
 // Dependencies
 import * as React from 'react';
-import Icon from 'react-native-vector-icons/MaterialIcons';
 import 'material-design-icons-iconfont/dist/material-design-icons.css';
 import Colors from '../Colors/Colors';
+import Icon from '../Icon/Icon';
 // Types
 import { IButtonProps, IconButtonProps, Platform, InstitutionalColor } from '../../types';
 // Styled
-import { StyledButton, StyledIcon } from './FloatButton.style';
+import { StyledButton } from './FloatButton.style';
 // Utils
 import { getPlatform } from '../../utils/Platform';
 
 const platform = getPlatform();
+const MixColors = { ...Colors.Institutional, ...Colors.Primary };
 
 const FloatButton: React.FC<IconButtonProps> = ({
   children,
   color = InstitutionalColor.Blue,
-  disabled,
+  disabled = false,
   icon,
   onClick,
   onPress,
+  size = 30,
 }) => {
   const props: IButtonProps = {
     children,
@@ -33,14 +35,11 @@ const FloatButton: React.FC<IconButtonProps> = ({
     props.onClick = onClick;
   }
 
+  const iconColor = disabled ? Colors.Neutral.c500 : Colors.Neutral.c0;
+
   return (
     <StyledButton {...props}>
-      {platform === Platform.Native && (
-        <Icon color={disabled ? Colors.Neutral.c500 : Colors.Neutral.c0} name={icon} size={30} />
-      )}
-      {platform === Platform.Web && (
-        <StyledIcon {...{ color, className: props.className, disabled }}>{icon}</StyledIcon>
-      )}
+      <Icon {...{ color: iconColor, disabled, name: icon, size }} />
     </StyledButton>
   );
 };

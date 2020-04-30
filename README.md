@@ -14,8 +14,8 @@
 ```bash
 # Install the library
 yarn add @incomprobable-ui/react
-# For React Native, install RNVector Icons
-yarn add react-native-vector-icons
+# For React Native, install RNSVG
+yarn add react-native-svg
 # For React Native, add Roboto as custom font
 ```
 

@@ -1,8 +1,9 @@
 // Dependencies
 import styled from '../../Theme';
-import { IButtonProps, ITextProps, Platform } from '../../types';
-import { TextProps, TouchableOpacityProps, ViewProps } from 'react-native';
+import { IButtonProps, ITextProps, Platform, SVGProps } from '../../types';
+import { TextProps, TouchableOpacityProps } from 'react-native';
 import { getPlatform } from '../../utils/Platform';
+import SVG, { G as GElement, Rect as RECT, Path as PATH } from 'react-native-svg';
 
 const platform = getPlatform();
 
@@ -60,3 +61,23 @@ export const I: React.FC<ITextProps> =
   platform === Platform.Native
     ? styled.Text<TextProps>``
     : styled.i<React.HTMLProps<HTMLUnknownElement>>``;
+
+export const Svg: React.FC<SVGProps | React.HTMLProps<SVGSVGElement>> =
+  platform === Platform.Native
+    ? styled(SVG)<SVGProps>``
+    : styled.svg<React.HTMLProps<SVGSVGElement>>``;
+
+export const Path: React.FC<SVGProps | React.HTMLProps<SVGPathElement>> =
+  platform === Platform.Native
+    ? styled(PATH)<SVGProps>``
+    : styled.path<React.HTMLProps<SVGPathElement>>``;
+
+export const G: React.FC<SVGProps | React.HTMLProps<SVGGElement>> =
+  platform === Platform.Native
+    ? styled(GElement)<SVGProps>``
+    : styled.g<React.HTMLProps<SVGGElement>>``;
+
+export const Rect: React.FC<SVGProps | React.HTMLProps<SVGRectElement>> =
+  platform === Platform.Native
+    ? styled(RECT)<SVGProps>``
+    : styled.rect<React.HTMLProps<SVGRectElement>>``;

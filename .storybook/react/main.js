@@ -1,3 +1,5 @@
+const path = require('path');
+
 module.exports = {
   stories: ['../../stories/web/*.stories.[tj]s'],
   webpackFinal: async (config) => {
@@ -33,6 +35,12 @@ module.exports = {
         },
       ],
     });
+
+    console.log(path.resolve(__dirname, './../../react-native-svg.js'));
+    config.resolve.alias['react-native-svg'] = path.resolve(
+      __dirname,
+      './../../react-native-svg.js',
+    );
 
     config.resolve.extensions.push('.ts', '.tsx');
     return config;

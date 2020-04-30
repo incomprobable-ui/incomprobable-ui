@@ -60,7 +60,7 @@ export const Icon = () => (
       color="Milhouse"
       variant="outline"
       disabled
-      icon="insert_photo"
+      icon="photo"
       onClick={() => alert('Clicked')}
     />
   </>

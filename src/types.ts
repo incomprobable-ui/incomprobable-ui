@@ -16,6 +16,16 @@ export type ActivableProps = {
   disabled?: boolean;
 };
 
+export type SVGIconProps = {
+  color: string;
+  size: number;
+};
+
+export type IconProps = SVGIconProps & {
+  disabled: boolean;
+  name: string;
+};
+
 export type IButtonProps = TouchableOpacityProps &
   React.HTMLProps<HTMLButtonElement> &
   VariantProps &
@@ -58,6 +68,7 @@ export type IconButtonProps = {
   icon: string;
   onClick?: () => void;
   onPress?: () => void;
+  size: number;
 } & ActivableProps &
   IconVariantProps;
 
@@ -156,4 +167,26 @@ export type NeutralColors = {
   c800: string;
   c900: string;
   c1000: string;
+};
+
+export type SVGProps = {
+  d?: string;
+  fill?: string;
+  fillOpacity?: number;
+  fillRule?: 'nonzero' | 'evenodd';
+  stroke?: 'none' | string;
+  strokeWidth?: number;
+  strokeOpacity?: number;
+  strokeLinecap?: 'butt' | 'square' | 'round';
+  strokeLinejoin?: 'miter' | 'bevel' | 'round';
+  strokeDasharray?: Array<string>;
+  strokeDashoffset?: null | number;
+  x?: number;
+  y?: number;
+  rotation?: number;
+  scale?: number;
+  viewBox?: string;
+  origin?: { x: number; y: number };
+  originX?: number;
+  originY?: number;
 };
