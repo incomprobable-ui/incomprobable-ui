@@ -67,15 +67,3 @@ export const StyledButton: React.FC<IButtonProps> = styled(Button)<React.FC<IBut
       `}
   `}
 `;
-
-export const StyledIcon: React.FC<IButtonProps> = styled(I)<React.FC<IButtonProps>>`
-  color: ${Colors.Neutral.c0};
-  font-size: 20px;
-  line-height: 48px;
-
-  ${({ disabled }: IButtonProps) =>
-    disabled &&
-    css`
-      color: ${Colors.Neutral.c500};
-    `}
-`;

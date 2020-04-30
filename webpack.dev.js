@@ -22,6 +22,12 @@ module.exports = () => {
     amd: 'styled-components',
     root: 'styled-components',
   };
+  externals['react-native-svg'] = {
+    commonjs: 'react-native-svg',
+    commonjs2: 'react-native-svg',
+    amd: 'react-native-svg',
+    root: 'react-native-svg',
+  };
 
   if (platform === 'native') {
     externals['react-native'] = {
@@ -111,6 +117,7 @@ module.exports = () => {
         react: path.resolve(__dirname, './node_modules/react'),
         'react-dom': path.resolve(__dirname, './node_modules/react-dom'),
         'react-native': path.resolve(__dirname, './node_modules/react-native'),
+        'react-native-svg': path.resolve(__dirname, './react-native-svg.js'),
         'styled-components': path.resolve(__dirname, pathRn),
       },
       extensions: ['.ts', '.tsx', '.js', '.ios.js', '.android.js'],
