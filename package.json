@@ -15,7 +15,9 @@
     "run-ios": "cd stories/native && react-native run-ios",
     "prettier": "prettier --check ./src/**/*.ts ./src/**/*.tsx",
     "prettier:fix": "prettier --write ./src/**/*.ts ./src/**/*.tsx",
-    "commit": "npx git-cz"
+    "commit": "npx git-cz",
+    "build-storybook": "build-storybook -c .storybook/react",
+    "deploy-storybook": "storybook-to-ghpages -p packages -o=storybook-static --ci"
   },
   "dependencies": {
     "material-design-icons-iconfont": "^5.0.1"
@@ -35,6 +37,7 @@
     "@storybook/react": "^5.3.18",
     "@storybook/react-native": "^5.3.18",
     "@storybook/react-native-server": "^5.3.18",
+    "@storybook/storybook-deployer": "^2.8.5",
     "@types/react": "^16.9.34",
     "@types/react-dom": "^16.9.6",
     "@types/react-native": "^0.62.2",
@@ -74,5 +77,9 @@
     "hooks": {
       "pre-commit": "pretty-quick --staged"
     }
+  },
+  "homepage": "https://leiteszeke.github.io/incomprobable-ui",
+  "repository": {
+    "url": "https://github.com/leiteszeke/incomprobable-ui"
   }
 }
