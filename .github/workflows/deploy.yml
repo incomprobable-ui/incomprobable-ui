@@ -1,0 +1,29 @@
+name: Publish to GitHub Pages
+
+on:
+  push:
+    branches:
+      - master
+      - deploy
+
+jobs:
+  build:
+    name: Build and Deploy
+    runs-on: ubuntu-latest
+
+    strategy:
+      matrix:
+        node-version: [12.x]
+
+    steps:
+      - uses: actions/checkout@v2
+      - name: Use Node.js ${{ matrix.node-version }}
+        uses: actions/setup-node@v1
+        with:
+          node-version: ${{ matrix.node-version }}
+      - run: npm install
+      - run: npm run build-storybook
+      - run: npm run deploy-storybook -- --ci
+        env:
+          GH_TOKEN: leiteszeke:${{ secrets.ACCESS_TOKEN }}
+          CI: true
