@@ -1,5 +1,10 @@
 // Dependencies
-import { TouchableOpacityProps, TextProps } from 'react-native';
+import {
+  TouchableOpacityProps,
+  TextProps,
+  ViewProps,
+  TextInputProps as RNTextInputProps,
+} from 'react-native';
 
 export type VariantProps = {
   variant?: ButtonVariant;
@@ -21,6 +26,38 @@ export type SVGIconProps = {
   size: number;
 };
 
+export enum InputStatus {
+  Active = 'active',
+  Default = 'default',
+  Disabled = 'disabled',
+  Error = 'error',
+  Focus = 'focus',
+}
+
+export enum BackgroundMode {
+  Dark = 'dark',
+  Light = 'light',
+}
+
+export type TextAreaProps = {
+  disabled?: boolean;
+  error?: boolean;
+  errorText?: string;
+  helperText?: string;
+  label?: string;
+  mode?: BackgroundMode;
+  value?: string;
+};
+
+export type TextInputProps = {
+  disabled?: boolean;
+  error?: boolean;
+  errorText?: string;
+  helperText?: string;
+  label?: string;
+  value?: string;
+};
+
 export type IconProps = SVGIconProps & {
   disabled: boolean;
   name: string;
@@ -39,6 +76,14 @@ export type IIconButtonProps = TouchableOpacityProps &
 export type ITextProps =
   | (TextProps & VariantProps & ActivableProps)
   | (React.HTMLProps<HTMLSpanElement> & VariantProps & ActivableProps);
+
+export type ILabelProps = TextProps | React.HTMLProps<HTMLLabelElement>;
+
+export type IDivProps = ViewProps | React.HTMLProps<HTMLDivElement>;
+
+export type ITextInputProps = RNTextInputProps | React.HTMLProps<HTMLInputElement>;
+
+export type ITextAreaProps = RNTextInputProps | React.HTMLProps<HTMLTextAreaElement>;
 
 export enum ButtonVariant {
   Classic = 'classic',

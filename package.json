@@ -16,8 +16,7 @@
     "prettier": "prettier --check ./src/**/*.ts ./src/**/*.tsx",
     "prettier:fix": "prettier --write ./src/**/*.ts ./src/**/*.tsx",
     "commit": "npx git-cz",
-    "build-storybook": "build-storybook -c .storybook/react",
-    "build": "yarn build-storybook",
+    "build": "build-storybook -c .storybook/react -o storybook-static",
     "deploy": "cp vercel.json storybook-static && vercel --prod",
     "release": "yarn build-storybook && cp vercel.json storybook-static && vercel --prod"
   },

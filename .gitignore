@@ -1,8 +1,15 @@
+# Cache and Dependencies
 node_modules
-dist
 .linaria-cache
+.vercel
+.now
+
+# Stories
 stories/native/node_modules
 stories/native/ios/Pods
 stories/native/storybook/stories/bundle.native.js
+
+# Outputs
+build
+dist
 storybook-static
-.vercel

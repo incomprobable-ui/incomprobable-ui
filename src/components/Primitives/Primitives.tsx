@@ -1,8 +1,17 @@
 // Dependencies
 import * as React from 'react';
 import styled from '../../Theme';
-import { IButtonProps, ITextProps, Platform, SVGProps } from '../../types';
-import { TextProps, TouchableOpacityProps } from 'react-native';
+import {
+  IButtonProps,
+  ITextInputProps,
+  ITextAreaProps,
+  ITextProps,
+  IDivProps,
+  ILabelProps,
+  Platform,
+  SVGProps,
+} from '../../types';
+import { TextProps, TouchableOpacityProps, ViewProps, TextInputProps } from 'react-native';
 import { getPlatform } from '../../utils/Platform';
 import SVG, { G as GElement, Rect as RECT, Path as PATH } from 'react-native-svg';
 
@@ -17,6 +26,26 @@ export const Text: React.FC<ITextProps> =
   platform === Platform.Native
     ? styled.Text<TextProps>``
     : styled.span<React.HTMLProps<HTMLSpanElement>>``;
+
+export const Div: React.FC<IDivProps> =
+  platform === Platform.Native
+    ? styled.View<ViewProps>``
+    : styled.div<React.HTMLProps<HTMLDivElement>>``;
+
+export const Input: React.FC<ITextInputProps> =
+  platform === Platform.Native
+    ? styled.TextInput<TextInputProps>``
+    : styled.input<React.HTMLProps<HTMLInputElement>>``;
+
+export const TextArea: React.FC<ITextAreaProps> =
+  platform === Platform.Native
+    ? styled.TextInput<TextInputProps>``
+    : styled.textarea<React.HTMLProps<HTMLTextAreaElement>>``;
+
+export const Label: React.FC<ILabelProps> =
+  platform === Platform.Native
+    ? styled.Text<TextProps>``
+    : styled.label<React.HTMLProps<HTMLLabelElement>>``;
 
 export const H1: React.FC<ITextProps> =
   platform === Platform.Native
