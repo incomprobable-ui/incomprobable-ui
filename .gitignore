@@ -5,3 +5,4 @@ stories/native/node_modules
 stories/native/ios/Pods
 stories/native/storybook/stories/bundle.native.js
 storybook-static
+.vercel
