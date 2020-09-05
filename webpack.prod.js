@@ -6,6 +6,7 @@ const exec = require('child_process').exec;
 module.exports = () => {
   const platform = process.env.NODE_ENV.includes('rn') ? 'native' : 'web';
   const pathRn = `"./node_modules/styled-components"${platform === 'native' ? '/native' : ''}`;
+
   const externals = {
     react: {
       commonjs: 'react',
@@ -20,6 +21,12 @@ module.exports = () => {
     commonjs2: 'styled-components',
     amd: 'styled-components',
     root: 'styled-components',
+  };
+  externals['react-native-svg'] = {
+    commonjs: 'react-native-svg',
+    commonjs2: 'react-native-svg',
+    amd: 'react-native-svg',
+    root: 'react-native-svg',
   };
 
   if (platform === 'native') {
