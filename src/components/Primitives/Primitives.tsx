@@ -1,4 +1,5 @@
 // Dependencies
+import * as React from 'react';
 import styled from '../../Theme';
 import { IButtonProps, ITextProps, Platform, SVGProps } from '../../types';
 import { TextProps, TouchableOpacityProps } from 'react-native';
