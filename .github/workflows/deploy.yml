@@ -1,4 +1,4 @@
-name: Publish to GitHub Pages
+name: Build and Deploy
 
 on:
   push:
@@ -15,14 +15,19 @@ jobs:
         node-version: [12.x]
 
     steps:
-      - uses: actions/checkout@v2
-      - name: Use Node.js ${{ matrix.node-version }}
+      - name: 'Checkout Repo'
+        uses: actions/checkout@v2
+
+      - name: Setup Node
         uses: actions/setup-node@v1
         with:
           node-version: ${{ matrix.node-version }}
-      - run: npm install
-      - run: npm run build-storybook
-      - run: npm run deploy-storybook -- --ci
-        env:
-          GH_TOKEN: leiteszeke:${{ secrets.ACCESS_TOKEN }}
-          CI: true
+
+      - name: 'Install dependencies'
+        run: yarn install
+
+      - name: 'Build Storybook'
+        run: 'yarn build'
+
+      - name: 'Deploy to Vercel'
+        run: 'yarn deploy'

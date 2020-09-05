@@ -17,7 +17,9 @@
     "prettier:fix": "prettier --write ./src/**/*.ts ./src/**/*.tsx",
     "commit": "npx git-cz",
     "build-storybook": "build-storybook -c .storybook/react",
-    "deploy-storybook": "storybook-to-ghpages -p packages -o=storybook-static --ci"
+    "build": "yarn build-storybook",
+    "deploy": "cp vercel.json storybook-static && vercel --prod",
+    "release": "yarn build-storybook && cp vercel.json storybook-static && vercel --prod"
   },
   "dependencies": {
     "material-design-icons-iconfont": "^6.0.2"
