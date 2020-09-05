@@ -3,7 +3,7 @@
 ## Dependencies
 
 - React >= 16.9.0
-- React Native >= 0.65.1
+- React Native >= 0.62.0
 - Styled Components >= 4.4.1
 - React Native Vector Icons >= 6.4.5
 

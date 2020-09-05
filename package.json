@@ -1,6 +1,6 @@
 {
   "name": "@incomprobable-ui/react",
-  "version": "1.0.0",
+  "version": "0.0.1",
   "main": "dist/bundle.web.js",
   "license": "MIT",
   "scripts": {
@@ -23,6 +23,7 @@
   "dependencies": {
     "material-design-icons-iconfont": "^6.0.2"
   },
+  "author": "Ezequiel Leites <ezequiel@leites.dev>",
   "peerDependencies": {
     "react": "^16.9.0",
     "react-dom": "^16.9.0",
@@ -79,8 +80,12 @@
       "pre-commit": "pretty-quick --staged"
     }
   },
-  "homepage": "https://leiteszeke.github.io/incomprobable-ui",
+  "homepage": "https://incomprobable-ui.now.sh",
   "repository": {
-    "url": "https://github.com/leiteszeke/incomprobable-ui"
+    "url": "git+https://github.com/incomprobable-ui/incomprobable-ui.git"
+  },
+  "description": "## Dependencies",
+  "bugs": {
+    "url": "https://github.com/incomprobable-ui/incomprobable-ui/issues"
   }
 }
