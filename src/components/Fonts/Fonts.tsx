@@ -1,54 +1,80 @@
 import { css } from '../../Theme';
+import { Platform } from '../../types';
+import { getPlatform } from '../../utils/Platform';
+
+const platform = getPlatform();
 
 export const Fonts = css`
   @font-face {
-    font-family: 'Material Icons';
-    font-style: normal;
-    font-weight: 400;
-    src: url(https://fonts.gstatic.com/s/materialicons/v50/flUhRq6tzZclQEJ-Vdg-IuiaDsNcIhQ8tQ.woff2) format('woff2');
-  }
-
-  @font-face {
-    font-family: 'Roboto Light';
+    font-family: 'Source Sans Pro';
     font-style: normal;
     font-weight: 200;
-    src: url('./Roboto-Light.ttf') format('ttf');
+    src: url('./SourceSansPro-Light.ttf') format('ttf');
   }
 
   @font-face {
-    font-family: 'Roboto Regular';
+    font-family: 'Source Sans Pro';
+    font-style: italic;
+    font-weight: 200;
+    src: url('./SourceSansPro-LightItalic.ttf') format('ttf');
+  }
+
+  @font-face {
+    font-family: 'Source Sans Pro';
     font-style: normal;
     font-weight: 400;
-    src: url('./Roboto-Regular.ttf') format('ttf');
+    src: url('./SourceSansPro-Regular.ttf') format('ttf');
   }
 
   @font-face {
-    font-family: 'Roboto Semibold';
+    font-family: 'Source Sans Pro';
     font-style: normal;
     font-weight: 600;
-    src: url('./Roboto-Bold.ttf') format('ttf');
+    src: url('./SourceSansPro-SemiBold.ttf') format('ttf');
   }
 
   @font-face {
-    font-family: 'Roboto Bold';
-    font-style: normal;
-    font-weight: 700;
-    src: url('./Roboto-Bold.ttf') format('ttf');
+    font-family: 'Source Sans Pro';
+    font-style: italic;
+    font-weight: 600;
+    src: url('./SourceSansPro-SemiBoldItalic.ttf') format('ttf');
   }
 
-  .material-icons {
-    font-family: 'Material Icons';
-    font-weight: normal;
+  @font-face {
+    font-family: 'Source Sans Pro';
     font-style: normal;
-    font-size: 24px;
-    line-height: 1;
-    letter-spacing: normal;
-    text-transform: none;
-    display: inline-block;
-    white-space: nowrap;
-    word-wrap: normal;
-    direction: ltr;
-    -webkit-font-feature-settings: 'liga';
-    -webkit-font-smoothing: antialiased;
+    font-weight: 700;
+    src: url('./SourceSansPro-Bold.ttf') format('ttf');
   }
-`
+
+  @font-face {
+    font-family: 'Source Sans Pro';
+    font-style: italic;
+    font-weight: 700;
+    src: url('./SourceSansPro-BoldItalic.ttf') format('ttf');
+  }
+`;
+
+export const fontLight = css`
+  font-size: 16px;
+  font-family: ${platform === Platform.Web ? 'Source Sans Pro' : 'SourceSansPro-Light'};
+  font-weight: 200;
+`;
+
+export const fontRegular = css`
+  font-size: 16px;
+  font-family: ${platform === Platform.Web ? 'Source Sans Pro' : 'SourceSansPro-Regular'};
+  font-weight: 400;
+`;
+
+export const fontSemibold = css`
+  font-size: 16px;
+  font-family: ${platform === Platform.Web ? 'Source Sans Pro' : 'SourceSansPro-SemiBold'};
+  font-weight: 600;
+`;
+
+export const fontBold = css`
+  font-size: 16px;
+  font-family: ${platform === Platform.Web ? 'Source Sans Pro' : 'SourceSansPro-Bold'};
+  font-weight: 700;
+`;

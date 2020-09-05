@@ -16,7 +16,7 @@
 yarn add @incomprobable-ui/react
 # For React Native, install RNSVG
 yarn add react-native-svg
-# For React Native, add Roboto as custom font
+# For React Native, add Souce Sans Pro as custom font
 ```
 
 ---

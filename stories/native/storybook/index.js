@@ -7,6 +7,7 @@ import './rn-addons';
 configure(() => {
   require('./stories/Button.stories');
   require('./stories/Colors.stories');
+  require('./stories/Input.stories');
   require('./stories/Shadows.stories');
   require('./stories/Typography.stories');
 }, module);
