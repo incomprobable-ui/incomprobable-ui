@@ -30,4 +30,4 @@ jobs:
         run: 'yarn build'
 
       - name: 'Deploy to Vercel'
-        run: 'yarn deploy'
+        run: 'yarn deploy --token ${{ secrets.VERCEL_TOKEN }}'
